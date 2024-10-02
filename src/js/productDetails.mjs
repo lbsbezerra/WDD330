@@ -1,20 +1,35 @@
+// In this file, we are defining a function for displaying product details on a webpage and adding the product to a cart
+
 import { findProductById } from "./productData.mjs";
 import { setLocalStorage } from "./utils.mjs";
 
+/**
+ * Stores the currently displayed product information.
+ */
 let product = {};
 
 export default async function productDetails(productId) {
-  // get the details for the current product. findProductById will return a promise! use await or .then() to process it
+  // Retrieve product details asynchronously.
   product = await findProductById(productId);
-  // once we have the product details we can render out the HTML
+  // Render the product details on the page.
   renderProductDetails();
-  // once the HTML is rendered we can add a listener to Add to Cart button
+  // Add a click event listener to the "Add to Cart" button. (Maybe we can add a error handling try catch here in the future?)
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
+
+/**
+ * Adds the current product to the cart by storing it in local storage.
+ */
 function addToCart() {
+  // Store the product information in local storage.
   setLocalStorage("so-cart", product);
 }
+
+/**
+ * Renders the product details on the page using the DOM. Another opportunity for error handling?
+ */
 function renderProductDetails() {
+  // Update the DOM with product information.
   document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText =
     product.NameWithoutBrand;
