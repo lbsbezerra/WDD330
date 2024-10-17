@@ -1,8 +1,8 @@
 // Function to load alerts from alerts.json
-async function loadAlerts() {
+export async function loadAlerts() {
     try {
       // Fetches the alerts data from the alerts.json file
-      const response = await fetch('../product_pages/alerts.json'); 
+      const response = await fetch('./alerts.json'); 
       if (!response.ok) {
         throw new Error('Failed to load alerts data');
       }
