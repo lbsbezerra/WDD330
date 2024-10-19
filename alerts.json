@@ -1,0 +1,12 @@
+[
+    {
+      "message": "Spring sale 20% off!",
+      "backgroundColor": "#e6ffe6",
+      "textColor": "e60000"
+    },
+    {
+      "message": "Buy one get one half off!",
+      "backgroundColor": "#ffe6e6",
+      "textColor": "#66ff33"
+    }
+  ]
