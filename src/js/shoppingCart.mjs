@@ -17,6 +17,7 @@ function displayCartTotal(total) {
     document.querySelector(".list-footer").classList.add("hide");
   }
 }
+
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
