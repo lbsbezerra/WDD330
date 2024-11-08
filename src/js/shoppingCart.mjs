@@ -7,21 +7,23 @@ export default function ShoppingCart() {
 }
 
 function displayCartTotal(total) {
+  // Selectors for the total element and the checkout section
   const listFooter = document.querySelector(".list-footer");
   const listTotalElement = document.querySelector(".list-total");
 
-  // Ensures total is a valid number before proceeding
-  const formattedTotal = parseFloat(total).toFixed(2);
+  // Validates and formats the total as a number with two decimal places
+  const formattedTotal = isNaN(total) ? "0.00" : parseFloat(total).toFixed(2);
 
-  if (formattedTotal > 0) {
-    // Shows checkout button and updates total with formatting
-    listFooter.classList.remove("hide");
-    listTotalElement.innerText = `Total: $${formattedTotal}`;
+  // Checks if total is greater than 0 to show/hide elements accordingly
+  if (parseFloat(formattedTotal) > 0) {
+    // Ensures the list footer is displayed
+    listFooter.style.display = ""; // Resets to default (inline/block)
+    listTotalElement.textContent = `Total: $${formattedTotal}`;
   } else {
-    // Hides checkout button if there are no items
-    listFooter.classList.add("hide");
-    // Clears any previous total
-    listTotalElement.innerText = ''; 
+    // Hides the list footer and clears total display if total is 0
+    listFooter.style.display = "none";
+    // Clears previous total
+    listTotalElement.textContent = ''; 
   }
 }
 
