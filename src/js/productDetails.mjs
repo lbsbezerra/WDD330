@@ -32,7 +32,7 @@ function addToCart() {
   // then add the current product to the list
   cartContents.push(product);
   setLocalStorage("so-cart", cartContents);
-  //animates the backpack after adding a product
+  //Calls the animation function
   animateCartIcon();
 }
 function renderProductDetails() {
