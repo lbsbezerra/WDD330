@@ -82,3 +82,23 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplateFn, headerEl);
   renderWithTemplate(footerTemplateFn, footerEl);
 }
+
+//Function to animate the backpack when adding items to the cart
+export function animateCartIcon() {
+  const cartIcon = document.querySelector('.cart'); 
+
+  // Resets any previous animation
+  cartIcon.style.animation = 'none';
+
+  // Triggers reflow to restart the animation
+  cartIcon.offsetHeight;
+
+  // Applies the bounce animation
+  cartIcon.style.transition = 'transform 0.5s ease';
+  cartIcon.style.transform = 'scale(1.2)';
+
+  // Returns to original scale after animation
+  setTimeout(() => {
+      cartIcon.style.transform = 'scale(1)';
+  }, 500); 
+}
