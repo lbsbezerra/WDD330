@@ -1,5 +1,6 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { animateCartIcon } from "./utils.mjs";
 
 let product = {};
 
@@ -31,6 +32,8 @@ function addToCart() {
   // then add the current product to the list
   cartContents.push(product);
   setLocalStorage("so-cart", cartContents);
+  //Calls the animation function
+  animateCartIcon();
 }
 function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
@@ -45,3 +48,4 @@ function renderProductDetails() {
     product.DescriptionHtmlSimple;
   document.querySelector("#addToCart").dataset.id = product.Id;
 }
+
